@@ -1,0 +1,67 @@
+extends ../layout
+
+block content
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	.container.contactform.center
+		h2.text-center.wowload.fadeInUp List of Philippine State Schools, Colleges and Universities
+		p.text-center.wowload.fadeInUp Fill out the form below for the additional to the List of Philippine State Schools, Colleges and Universities
+		p.text-center.wowload.fadeInUp Please observe the correct format in filling out the form:
+		.row.wowload.fadeInLeftBig
+			.col-sm-6.col-sm-offset-3.col-xs-12
+				form#formAddBlob(name="addblob",method="post",action="/blobs")
+					p Name: 
+							input#inputName(type="text", placeholder="ex. Polytechnic University of the Philippines", name="name")
+					p Locale: 
+							input#inputLocale(type="text", placeholder="ex. NCR", name="locale")
+					p President: 
+							input#inputPresident(type="text", placeholder="ex. Emanuel C. De Guzman", name="president")
+					p Established:
+							input#inputEstablished(type="number", placeholder="ex. 1908", name="established")
+					p Population: 
+							input#inputPopulation(type="number", placeholder="ex. 52,405", name="population")
+					p Website: 
+							input#inputWebsite(type="text", placeholder="ex. https://www.pup.edu.ph/", name="website")
+					p Social-Page: 
+							input#inputSocial-Page(type="text", placeholder="ex. https://www.facebook.com/ThePUPOfficial/", name="social")
+					p Image Link: 
+							input#inputImageLink(type="text", placeholder="ex. https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Seal_of_Polytechnic_University_of_the_Philippines.svg/1026px-Seal_of_Polytechnic_University_of_the_Philippines.svg.png", name="image")
+					p DOB: 
+							input#inputDob(type="date", name="dob")
+					button.btn.btn-primary(type="submit")
+						i.fa.fa-paper-plane
+						|  Submit
+	br
+	br
+	// Footer Starts
+	.footer.text-center.spacer
+		p.wowload.flipInX
+			a(href='#')
+				i.fa.fa-facebook.fa-2x
+			a(href='#')
+				i.fa.fa-instagram.fa-2x
+			a(href='#')
+				i.fa.fa-twitter.fa-2x
+			a(href='#')
+				i.fa.fa-flickr.fa-2x
+		| Copyright 2014 Cyrus Creative Studio. All rights reserved.
+	// # Footer Ends
+
+	// jquery
+	script(src='assets/jquery.js')
+	// wow script
+	script(src='assets/wow/wow.min.js')
+	// boostrap
+	script(src='assets/bootstrap/js/bootstrap.js', type='text/javascript')
+	// jquery mobile
+	script(src='assets/mobile/touchSwipe.min.js')
+	script(src='assets/respond/respond.js')
+	// gallery
+	script(src='assets/gallery/jquery.blueimp-gallery.min.js')
+	// custom script
+	script(src='assets/script.js')

@@ -1,0 +1,54 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    title Uni Crud App
+    // Google fonts
+    link(href='http://fonts.googleapis.com/css?family=Roboto:400,300,700', rel='stylesheet', type='text/css')
+    // font awesome
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
+    // bootstrap
+    link(rel='stylesheet', href='assets/bootstrap/css/bootstrap.min.css')
+    // animate.css
+    link(rel='stylesheet', href='assets/animate/animate.css')
+    link(rel='stylesheet', href='assets/animate/set.css')
+    // gallery
+    link(rel='stylesheet', href='assets/gallery/blueimp-gallery.min.css')
+    // favicon
+    link(rel='shortcut icon', href='images/favicon.ico', type='image/x-icon')
+    link(rel='icon', href='images/favicon.ico', type='image/x-icon')
+    link(rel='stylesheet', href='assets/style.css')
+    
+  body
+    .topbar.animated.fadeInLeftBig
+        // Header Starts
+        .navbar-wrapper
+          .container
+            #top-nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+              .container
+                .navbar-header
+                  // Logo Starts
+                  a.navbar-brand(href='/')
+                    img(src='images/logo.png', alt='logo')
+                  // #Logo Ends
+                  button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                // Nav Starts
+                .navbar-collapse.collapse
+                  ul.nav.navbar-nav.navbar-right.scroll
+                    li.active
+                      a(href='/') Home
+                    li
+                      a(href='/#about') About
+                    li
+                      a(href='/#about2') Team13
+                    
+                // #Nav Ends
+    // #Header Starts
+    // works
+    block content
