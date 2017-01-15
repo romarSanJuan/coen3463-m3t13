@@ -1,70 +1,31 @@
-extends ../layout
+.container.contactform.center
+	h2.text-center.wowload.fadeInUp List of Philippine State Schools, Colleges and Universities
+	p.text-center.wowload.fadeInUp Fill out the form below for the additional to the List of Philippine State Schools, Colleges and Universities
+	p.text-center.wowload.fadeInUp Please observe the correct format in filling out the form:
+	.row.wowload.fadeInLeftBig
+		.col-sm-6.col-sm-offset-3.col-xs-12
 
-block content
-	br
-	br
-	br
-	br
-	br
-	br
-	br
-	.container.contactform.center
-		h2.text-center.wowload.fadeInUp List of Philippine State Schools, Colleges and Universities
-		p.text-center.wowload.fadeInUp Fill out the form below for the additional to the List of Philippine State Schools, Colleges and Universities
-		p.text-center.wowload.fadeInUp Please observe the correct format in filling out the form:
-		.row.wowload.fadeInLeftBig
-			.col-sm-6.col-sm-offset-3.col-xs-12
-				Blob ID #{blob._id}
-					form(action='/blobs/#{blob._id}/edit',method='post',name='updateblob',enctype='application/x-www-form-urlencoded')
-						p Name: 
-								input#inputName(type='text', value='#{blob.name}', name='name')
-						p Locale: 
-								input#inputLocale(type='text', value='#{blob.locale}', name='locale')
-						p President: 
-								input#inputPresident(type='text', value='#{blob.president}', name='president')
-						p Established:
-								input#inputEstablished(type='number', value='#{blob.established}', name='established')
-						p Population: 
-								input#inputPopulation(type='number', value='#{blob.population}', name='population')
-						p Website: 
-								input#inputWebsite(type='text', value='#{blob.webiste}', name='website')
-						p Social-Page: 
-								input#inputSocial-Page(type='text', value='#{blob.social}', name='social')
-						p Image Link: 
-								input#inputImageLink(type='text', value='#{blob.image}', name='image')
-						p DOB: 
-								input#inputDob(type='date', value='#{blobdob}', name='dob')
-						p 
-								input(type='hidden',value='PUT',name='_method')
-						button.btn.btn-primary(type="submit")
-							i.fa.fa-paper-plane
-							|  Update
-		br
-		br
-		// Footer Starts
-		.footer.text-center.spacer
-			p.wowload.flipInX
-				a(href='#')
-					i.fa.fa-facebook.fa-2x
-				a(href='#')
-					i.fa.fa-instagram.fa-2x
-				a(href='#')
-					i.fa.fa-twitter.fa-2x
-				a(href='#')
-					i.fa.fa-flickr.fa-2x
-			| Copyright 2014 Cyrus Creative Studio. All rights reserved.
-		// # Footer Ends
-
-		// jquery
-		script(src='assets/jquery.js')
-		// wow script
-		script(src='assets/wow/wow.min.js')
-		// boostrap
-		script(src='assets/bootstrap/js/bootstrap.js', type='text/javascript')
-		// jquery mobile
-		script(src='assets/mobile/touchSwipe.min.js')
-		script(src='assets/respond/respond.js')
-		// gallery
-		script(src='assets/gallery/jquery.blueimp-gallery.min.js')
-		// custom script
-		script(src='assets/script.js')
+				form(action='/blobs/#{blob._id}/edit',method='post',name='updateblob',enctype='application/x-www-form-urlencoded')
+					p Name: 
+							input#inputName(type='text', value='#{blob.name}', name='name')
+					p Locale: 
+							input#inputLocale(type='text', value='#{blob.locale}', name='locale')
+					p President: 
+							input#inputPresident(type='text', value='#{blob.president}', name='president')
+					p Established:
+							input#inputEstablished(type='number', value='#{blob.established}', name='established')
+					p Population: 
+							input#inputPopulation(type='number', value='#{blob.population}', name='population')
+					p Website: 
+							input#inputWebsite(type='text', value='#{blob.webiste}', name='website')
+					p Social-Page: 
+							input#inputSocial-Page(type='text', value='#{blob.social}', name='social')
+					p Image Link: 
+							input#inputImageLink(type='text', value='#{blob.image}', name='image')
+					p Date and Time: 
+							input#inputDob(type='date', value='#{blobdob}', name='dob')
+					p 
+							input(type='hidden',value='PUT',name='_method')
+					button.btn.btn-primary(type="submit")
+						i.fa.fa-paper-plane
+						|  Update
