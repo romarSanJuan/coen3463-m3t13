@@ -1,0 +1,105 @@
+extends layout
+
+block content
+    #works.clearfix.grid
+      figure.effect-oscar.wowload.fadeInDownBig
+        img(src='images/portfolio/1.jpg', alt='img01')
+        figcaption
+          i.fa.fa-id-card-o.fa-5x
+          h2 Team13
+          p
+            | 
+            a(href='images/portfolio/4.jpg', data-gallery='') View more
+      figure.effect-oscar.wowload.fadeInDownBig
+        img(src='images/portfolio/2.jpg', alt='img01')
+        figcaption
+          i.fa.fa-plus-square.fa-5x
+          h2 ADD
+          p
+            | 
+            a(href='/blobs/new') Add
+      figure.effect-oscar.wowload.fadeInDownBig
+        img(src='images/portfolio/3.jpg', alt='img01')
+        figcaption
+            i.fa.fa-list-alt.fa-5x
+            h2 LIST
+            p
+              | 
+              a(href='/blobs') View
+
+    // works
+    // Cirlce Starts
+    #about.container.spacer.about
+      h2.text-center.wowload.fadeInUp Philippine State Schools, Colleges and Universities
+      .row
+        .col-sm-6.wowload.fadeInLeft
+          h4
+            i.fa.fa-database
+            |  Database
+          p
+            | This is the list of state-funded schools, colleges and universities in the Philippines. The list includes national colleges and universities system, region-wide colleges and universities system, province-wide colleges and universities system, and specialized schools. This list does NOT include locally funded schools, colleges and universities.
+        .col-sm-6.wowload.fadeInRight
+          h4
+            i.fa.fa-code
+            |  Frontend & Backend Development
+          p
+            | Team 13 develop a CRUD Node.js webapp using Express, Jade, and MongdoDB as the database.
+
+    // About Starts
+    #about2.highlight-info
+      .overlay.spacer
+        .container
+          .row.text-center.wowload.fadeInDownBig
+            .col-sm-3.col-xs-6
+              i.fa.fa-institution.fa-5x
+              h4 107 Schools
+            .col-sm-3.col-xs-6
+              i.fa.fa-cloud-download.fa-5x
+              h4 107 Added
+            .col-sm-3.col-xs-6
+              i.fa.fa-refresh.fa-5x
+              h4 3 Updates
+            .col-sm-3.col-xs-6
+              i.fa.fa-trash.fa-5x
+              h4 5 Deletes
+    // About Ends
+    
+    
+    // Footer Starts
+    .footer.text-center.spacer
+      p.wowload.flipInX
+        a(href='#')
+          i.fa.fa-facebook.fa-2x
+        a(href='#')
+          i.fa.fa-instagram.fa-2x
+        a(href='#')
+          i.fa.fa-twitter.fa-2x
+        a(href='#')
+          i.fa.fa-flickr.fa-2x
+      | © 2016 COEN 3463  Module 3 Team 13 
+    // # Footer Ends
+    a.gototop(href='#works')
+      i.fa.fa-angle-up.fa-3x
+      // The Bootstrap Image Gallery lightbox, should be a child element of the document body
+    #blueimp-gallery.blueimp-gallery.blueimp-gallery-controls
+      // The container for the modal slides
+      .slides
+      // Controls for the borderless lightbox
+      h3.title Title
+      a.prev ‹
+      a.next ›
+      a.close ×
+      // The modal dialog, which will be used to wrap the lightbox content
+    // jquery
+    script(src='assets/jquery.js')
+    // wow script
+    script(src='assets/wow/wow.min.js')
+    // boostrap
+    script(src='assets/bootstrap/js/bootstrap.js', type='text/javascript')
+    // jquery mobile
+    script(src='assets/mobile/touchSwipe.min.js')
+    script(src='assets/respond/respond.js')
+    // gallery
+    script(src='assets/gallery/jquery.blueimp-gallery.min.js')
+    // custom script
+    script(src='assets/script.js')
