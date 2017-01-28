@@ -39,10 +39,13 @@ block content
                 .tm-home-box-2-container
                   a.tm-home-box-2-link(href='#{blob.website}')
                     i.fa.fa-globe.tm-home-box-2-icon.border-right
+
                   a.tm-home-box-2-link(href='/blobs/#{blob._id}')
                     span.tm-home-box-2-description.box-3 #{blob.name}
+
                   a.tm-home-box-2-link(href='/blobs/#{blob._id}/edit')
                     i.fa.fa-edit.tm-home-box-2-icon.border-left
+                    
                 form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
                     input(type='hidden',value='DELETE',name='_method')
                     button(type='submit',style='width:300px;height:25px;', position= 'center').
