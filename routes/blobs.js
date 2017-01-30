@@ -4,6 +4,12 @@
     bodyParser = require('body-parser'),
     methodOverride = require('method-override');
 
+router.use(function(req, res, next) {
+  if (!req.user) {
+    res.redirect('/')
+  }
+  next();
+});
 
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(methodOverride(function(req, res){

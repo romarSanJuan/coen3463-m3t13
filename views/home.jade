@@ -6,10 +6,11 @@ block content
         img(src='images/portfolio/1.jpg', alt='img01')
         figcaption
           i.fa.fa-id-card-o.fa-5x
-          h2 Team13
+          h2 #{user.username}
           p
             | 
-            a(href='images/portfolio/4.jpg', data-gallery='') View more
+            a(href='#partners') View more
+            a(href='/auth/logout') Logout
       figure.effect-oscar.wowload.fadeInDownBig
         img(src='images/portfolio/2.jpg', alt='img01')
         figcaption
@@ -63,8 +64,30 @@ block content
               i.fa.fa-trash.fa-5x
               h4 5 Deletes
     // About Ends
-    
-    
+    #partners.container.spacer
+      h2.text-center.wowload.fadeInUp My Profile
+      .clearfix
+        .col-sm-6
+          #carousel-testimonials.carousel.slide.testimonails.wowload.fadeInRight(data-ride='carousel')
+            .carousel-inner
+              .item.active.animated.bounceInRight.row
+                .animated.slideInLeft.col-xs-2
+                  img.img-circle.img-responsive(alt='portfolio', src='images/team/1.jpg', width='100')
+                .col-xs-10
+                  p
+                    | First Name: #{user.firstname}
+                    br
+                    | Last Name: #{user.lastname}
+                    br
+                    | Email Name: #{user.email}
+                  span
+                    | User Name: #{user.username} 
+                    b 
+            // Indicators
+            ol.carousel-indicators
+              li.active(data-target='#carousel-testimonials', data-slide-to='0')
+              li(data-target='#carousel-testimonials', data-slide-to='1')
+              li(data-target='#carousel-testimonials', data-slide-to='2')
     // Footer Starts
     .footer.text-center.spacer
       p.wowload.flipInX

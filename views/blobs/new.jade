@@ -16,23 +16,23 @@ block content
 			.col-sm-6.col-sm-offset-3.col-xs-12
 				form#formAddBlob(name="addblob",method="post",action="/blobs")
 					p Name: 
-							input#inputName(type="text", placeholder="ex. Polytechnic University of the Philippines", name="name")
+							input#inputName(type="text", placeholder="ex. Polytechnic University of the Philippines", name="name", required='', autocomplete='off')
 					p Locale: 
-							input#inputLocale(type="text", placeholder="ex. NCR", name="locale")
+							input#inputLocale(type="text", placeholder="ex. NCR", name="locale", required='', autocomplete='off')
 					p President: 
-							input#inputPresident(type="text", placeholder="ex. Emanuel C. De Guzman", name="president")
+							input#inputPresident(type="text", placeholder="ex. Emanuel C. De Guzman", name="president", required='', autocomplete='off')
 					p Established:
-							input#inputEstablished(type="number", placeholder="ex. 1908", name="established")
+							input#inputEstablished(type="number", placeholder="ex. 1908", name="established", required='', autocomplete='off')
 					p Population: 
-							input#inputPopulation(type="number", placeholder="ex. 52,405", name="population")
+							input#inputPopulation(type="number", placeholder="ex. 52,405", name="population", required='', autocomplete='off')
 					p Website: 
-							input#inputWebsite(type="text", placeholder="ex. https://www.pup.edu.ph/", name="website")
+							input#inputWebsite(type="text", placeholder="ex. https://www.pup.edu.ph/", name="website", required='', autocomplete='off')
 					p Social-Page: 
-							input#inputSocial-Page(type="text", placeholder="ex. https://www.facebook.com/ThePUPOfficial/", name="social")
+							input#inputSocial-Page(type="text", placeholder="ex. https://www.facebook.com/ThePUPOfficial/", name="social", required='', autocomplete='off')
 					p Image Link: 
-							input#inputImageLink(type="text", placeholder="ex. https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Seal_of_Polytechnic_University_of_the_Philippines.svg/1026px-Seal_of_Polytechnic_University_of_the_Philippines.svg.png", name="image")
+							input#inputImageLink(type="text", placeholder="ex. https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Seal_of_Polytechnic_University_of_the_Philippines.svg/1026px-Seal_of_Polytechnic_University_of_the_Philippines.svg.png", name="image", required='', autocomplete='off')
 					p Date and Time: 
-							input#inputDob(type="date", name="dob")
+							input#inputDob(type="date", name="dob", required='', autocomplete='off')
 					button.btn.btn-primary(type="submit")
 						i.fa.fa-paper-plane
 						|  Submit
