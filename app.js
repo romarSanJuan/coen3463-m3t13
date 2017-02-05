@@ -13,7 +13,7 @@ var methodOverride = require('method-override'),
 var router = express.Router();  
 
 var db = require('./model/db'),
-    blob = require('./model/blobs');
+    Blob = require('./model/blobs');
 
 
 var routes = require('./routes/index'),
@@ -57,7 +57,7 @@ passport.deserializeUser(User.deserializeUser());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-restify.serve(router, blob);
+restify.serve(router, Blob);
 app.use(router)
 
 app.use('/', routes);

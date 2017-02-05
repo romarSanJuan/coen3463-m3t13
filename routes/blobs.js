@@ -3,7 +3,7 @@
       mongoose = require('mongoose'),
       bodyParser = require('body-parser'),
       methodOverride = require('method-override');
-
+        
 router.use(function(req, res, next) {
   if (!req.user) {
     res.redirect('/')
