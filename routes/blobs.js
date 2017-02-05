@@ -1,8 +1,8 @@
   var express = require('express'),
-    router = express.Router(),
-    mongoose = require('mongoose'),
-    bodyParser = require('body-parser'),
-    methodOverride = require('method-override');
+      router = express.Router(),
+      mongoose = require('mongoose'),
+      bodyParser = require('body-parser'),
+      methodOverride = require('method-override');
 
 router.use(function(req, res, next) {
   if (!req.user) {

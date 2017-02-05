@@ -10,4 +10,4 @@ var blobSchema = new mongoose.Schema({
   image: String,
   dob: { type: Date, default: Date.now },
 });
-mongoose.model('Blob', blobSchema);
+module.exports =  mongoose.model('Blob', blobSchema);

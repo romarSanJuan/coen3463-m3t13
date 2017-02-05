@@ -8,6 +8,10 @@ var express = require('express'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 
+var methodOverride = require('method-override'),
+    restify = require('express-restify-mongoose');
+var router = express.Router();  
+
 var db = require('./model/db'),
     blob = require('./model/blobs');
 
@@ -42,6 +46,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 var User = require('./model/user');
 passport.use(User.createStrategy());
 
@@ -51,6 +56,9 @@ passport.deserializeUser(User.deserializeUser());
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+restify.serve(router, blob);
+app.use(router)
 
 app.use('/', routes);
 app.use('/blobs', blobs);
