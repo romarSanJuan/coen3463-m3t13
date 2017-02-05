@@ -1,52 +1,29 @@
-extends ../layout
 
-block content
+link(href='css/css.css', rel='stylesheet')
+h1
+  span.blue <
+  | Table
+  span.blue >
+  span.yellow Responsive
+h2
+  | Created with love by 
+  a(href='http://pablogarciafernandez.com', target='_blank') Pablo García Fernández
+table.container
+  thead
+    tr
+      th
+        h1 NAME
+      th
+        h1 LOCALE
+      th
+        h1 ESTABLISHED
+      th
+        h1 VIEW
+  tbody
 
-    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700', rel='stylesheet', type='text/css')
-    link(href='css/bootstrap-datetimepicker.min.css', rel='stylesheet')
-    link(href='css/flexslider.css', rel='stylesheet')
-    link(href='css/templatemo-style.css', rel='stylesheet')
-    tm-tours-box-1-info-right
-        body.tm-gray-bg
-      .container
-        .row
-          .tm-section-header.section-margin-top
-            .col-lg-4.col-md-3.col-sm-3
-              hr
-            .col-lg-4.col-md-6.col-sm-6
-              h2.tm-section-title Philippine State Schools, Colleges and Universities
-            .col-lg-4.col-md-3.col-sm-3
-              hr
-          .col-lg-6
-          each blob, i in blobs
-            .tm-home-box-3
-              .tm-home-box-3-img-container
-                img.img-responsive(src='#{blob.image}', alt='image', style="width:250px;height:380px;")
-              .tm-home-box-3-info
-                p.tm-home-box-3-description
-                  | Locale: #{blob.locale}
-                  br
-                  | President: #{blob.president}
-                  br
-                  | Established: #{blob.established}
-                  br
-                  | Population: #{blob.population}
-                  br
-                  | Website: #{blob.website}
-                  br
-                  | Social-Page: #{blob.social}
-                  br
-                  | Time: #{blob.dob}
-                .tm-home-box-2-container
-                  a.tm-home-box-2-link(href='#{blob.website}')
-                    i.fa.fa-globe.tm-home-box-2-icon.border-right
-                  a.tm-home-box-2-link(href='/blobs/#{blob._id}')
-                    span.tm-home-box-2-description.box-3 #{blob.name}
-                  a.tm-home-box-2-link(href='/blobs/#{blob._id}/edit')
-                    i.fa.fa-edit.tm-home-box-2-icon.border-left
-                form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
-                    input(type='hidden',value='DELETE',name='_method')
-                    button(type='submit',style='width:300px;height:25px;', position= 'center').
-                        Delete
- 
-                    
+
+  script(src='js/main.js')
+
+      
+       
+                

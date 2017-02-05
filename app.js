@@ -6,15 +6,12 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
+        
+    methodOverride = require('method-override'),
+    restify = require('express-restify-mongoose'),
+    router = express.Router();  
 
-var methodOverride = require('method-override'),
-    restify = require('express-restify-mongoose');
-var router = express.Router();  
-
-var db = require('./model/db'),
-    Blob = require('./model/blobs');
-
+var db = require('./model/db');
 
 var routes = require('./routes/index'),
     blobs = require('./routes/blobs'),
@@ -36,6 +33,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'secret',
@@ -46,7 +44,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+var Blob = require('./model/blobs');
 var User = require('./model/user');
 passport.use(User.createStrategy());
 

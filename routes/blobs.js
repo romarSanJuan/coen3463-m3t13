@@ -3,7 +3,8 @@
       mongoose = require('mongoose'),
       bodyParser = require('body-parser'),
       methodOverride = require('method-override');
-        
+      Blob = require('../model/blobs');   
+
 router.use(function(req, res, next) {
   if (!req.user) {
     res.redirect('/')
@@ -23,7 +24,7 @@ router.use(methodOverride(function(req, res){
 
 router.route('/')
     .get(function(req, res, next) {
-        mongoose.model('Blob').find({}, function (err, blobs) {
+        Blob.find({}, function (err, blobs) {
               if (err) {
                   return console.error(err);
               } else {  
