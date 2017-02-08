@@ -14,7 +14,7 @@ block content
 		p.text-center.wowload.fadeInUp Please observe the correct format in filling out the form:
 		.row.wowload.fadeInLeftBig
 			.col-sm-6.col-sm-offset-3.col-xs-12
-				form#formAddBlob(name="addblob",method="post",action="/blobs")
+				form#formAddBlob(name="addblob",method="post",action="/blobs/new")
 					p Name: 
 							input#inputName(type="text", placeholder="ex. Polytechnic University of the Philippines", name="name", required='', autocomplete='off')
 					p Locale: 
@@ -31,8 +31,6 @@ block content
 							input#inputSocial-Page(type="text", placeholder="ex. https://www.facebook.com/ThePUPOfficial/", name="social", required='', autocomplete='off')
 					p Image Link: 
 							input#inputImageLink(type="text", placeholder="ex. https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Seal_of_Polytechnic_University_of_the_Philippines.svg/1026px-Seal_of_Polytechnic_University_of_the_Philippines.svg.png", name="image", required='', autocomplete='off')
-					p Date and Time: 
-							input#inputDob(type="date", name="dob", required='', autocomplete='off')
 					button.btn.btn-primary(type="submit")
 						i.fa.fa-paper-plane
 						|  Submit

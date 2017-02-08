@@ -2,15 +2,11 @@
       router = express.Router(),
       mongoose = require('mongoose'),
       bodyParser = require('body-parser'),
-      methodOverride = require('method-override');
-      Blob = require('../model/blobs');   
+      methodOverride = require('method-override'),
+      Blob = require('../model/blobs');  
 
-router.use(function(req, res, next) {
-  if (!req.user) {
-    res.redirect('/')
-  }
-  next();
-});
+var date = new Date();
+var getDate = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
 
 router.use(bodyParser.urlencoded({ extended: true }))
 router.use(methodOverride(function(req, res){
@@ -22,28 +18,38 @@ router.use(methodOverride(function(req, res){
 }))
 
 
-router.route('/')
-    .get(function(req, res, next) {
-        Blob.find({}, function (err, blobs) {
+router.get('/', function(req, res, next) {
+    if(req.user){   
+        Blob.find().sort({date: 'descending'}).exec(function(err, blobs){
+          mongoose.model('Blob').find({}, function (err, blobs) {
               if (err) {
                   return console.error(err);
               } else {  
                   res.format({  
                     html: function(){
                         res.render('blobs/index', {
+                              user: req.user,
                               title: 'All my Blobs',
-                              "blobs" : blobs
-                          });
+                              "blobs" : blobs,
+                              alertMessage: req.flash('alertMessage')
+                        });
                     },
                     json: function(){
                         res.json(blobs);
                     }
                 });
               }     
-        });
-    })
-
-    .post(function(req, res) {
+         });
+        })  
+    }
+    else{
+      res.redirect('/auth/login')
+    }    
+});
+router.post('/', function(req, res){
+  res.redirect('../blobs/')
+});
+router.post('/new', function(req, res) {
         var name = req.body.name;
         var locale = req.body.locale;
         var president = req.body.president;
@@ -52,7 +58,8 @@ router.route('/')
         var website = req.body.website;
         var social = req.body.social;
         var image = req.body.image;
-        var dob = req.body.dob;
+        var date = getDate;
+        var updated = getDate;
 
 
         mongoose.model('Blob').create({
@@ -64,17 +71,19 @@ router.route('/')
             website: website,
             social: social,
             image: image,
-            dob : dob,
+            date : date,
 
         }, function (err, blob) {
               if (err) {
-                  res.send("There was a problem adding the information to the database.");
+                  req.flash('alertMessage', 'Please fill up all information!');
+                  res.redirect('/blobs/new');
+                  //res.send("/blobs");
               } else {
                   console.log('POST creating new blob: ' + blob);
                   res.format({   
                     html: function(){
                         res.location("blobs");
-                        res.redirect("/blobs");
+                        res.redirect("/blobs/");
                     },
                     json: function(){
                         res.json(blob);
@@ -82,11 +91,15 @@ router.route('/')
                 });
               }
         })
-    });
-
+});
 
 router.get('/new', function(req, res) {
-    res.render('blobs/new', { title: 'Add New Blob' });
+  if(req.user){  
+    res.render('blobs/new', { user: req.user, title: 'Add New Blob' , alertMessage: req.flash('alertMessage')});
+  }
+  else{
+    res.redirect('/auth/login')
+  } 
 });
 
 
@@ -120,12 +133,9 @@ router.route('/:id')
         console.log('GET Error: There was a problem retrieving: ' + err);
       } else {
         console.log('GET Retrieving ID: ' + blob._id);
-        var blobdob = blob.dob.toISOString();
-        blobdob = blobdob.substring(0, blobdob.indexOf('T'))
         res.format({
           html: function(){
               res.render('blobs/show', {
-                "blobdob" : blobdob,
                 "blob" : blob
               });
           },
@@ -144,13 +154,10 @@ router.route('/:id/edit')
               console.log('GET Error: There was a problem retrieving: ' + err);
           } else {
               console.log('GET Retrieving ID: ' + blob._id);
-              var blobdob = blob.dob.toISOString();
-              blobdob = blobdob.substring(0, blobdob.indexOf('T'))
               res.format({
                   html: function(){
                          res.render('blobs/edit', {
                             title: 'Blob' + blob._id,
-                            "blobdob" : blobdob,
                             "blob" : blob
                         });
                    },
@@ -171,7 +178,7 @@ router.route('/:id/edit')
       var website = req.body.website;
       var social = req.body.social;
       var image = req.body.image;
-      var dob = req.body.dob;
+      var updated = getDate;
 
 
 
@@ -186,7 +193,7 @@ router.route('/:id/edit')
               website: website,
               social: social,
               image: image,
-              dob : dob,
+              updated : getDate,
 
           }, function (err, blobID) {
             if (err) {
@@ -196,7 +203,7 @@ router.route('/:id/edit')
                    
                     res.format({
                         html: function(){
-                             res.redirect("/blobs/" + blob._id);
+                             res.redirect("/blobs/");
                        },
                  
                       json: function(){

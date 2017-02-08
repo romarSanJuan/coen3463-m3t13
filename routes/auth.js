@@ -3,6 +3,7 @@ var User = require('../model/user');
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var flash = require('connect-flash');
 
 router.post('/register', function(req, res, next) {
     var add = {
@@ -13,6 +14,7 @@ router.post('/register', function(req, res, next) {
     };
     User.register(new User(add), req.body.password, function(err, account) {
       if(err) {
+        req.flash('alertMessage', 'Invalid username or email address!');
         return res.render('index', {account: account});
       }
 

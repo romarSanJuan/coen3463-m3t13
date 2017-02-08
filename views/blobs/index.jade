@@ -1,28 +1,38 @@
+doctype html
+html
+  head
+    title= title
+    link(href='css/css.css', rel='stylesheet')
+  body
+    h1
+      span.yellow Philippine State Schools, Colleges and Universities
+    h2
+      | Go Back 
+      a(href='/home') HOME
+    h2
+      | Total Number of Schools:
+      span#totalCount
 
-link(href='css/css.css', rel='stylesheet')
-h1
-  span.blue <
-  | Table
-  span.blue >
-  span.yellow Responsive
-h2
-  | Created with love by 
-  a(href='http://pablogarciafernandez.com', target='_blank') Pablo García Fernández
-table.container
-  thead
-    tr
-      th
-        h1 NAME
-      th
-        h1 LOCALE
-      th
-        h1 ESTABLISHED
-      th
-        h1 VIEW
-  tbody
+    h2
+      | Search our Database:
+      form(method= 'post', action= '../blobs/', onsubmit= 'getSearch()')
+        input#search(type='search', placeholder="Search School")
+    
+    table.container
+      thead
+        tr
+          th
+            h1 NAME
+          th
+            h1 LOCALE
+          th
+            h1 ESTABLISHED
+          th
+            h1 DATE CREATED
+      tbody#table-body
 
 
-  script(src='js/main.js')
+      script(type="text/javascript", src="js/main.js")
 
       
        

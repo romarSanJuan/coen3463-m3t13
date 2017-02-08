@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');  
-
 var blobSchema = new mongoose.Schema({  
   name: String,
   locale: String,
@@ -9,6 +8,8 @@ var blobSchema = new mongoose.Schema({
   website: String,
   social: String,
   image: String,
-  dob: { type: Date, default: Date.now },
+  date: String,
+  updated: String,
 });
+
 module.exports =  mongoose.model('Blob', blobSchema);
